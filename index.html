@@ -34,19 +34,26 @@
                     <p>Monday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="m-s-hours" id="m-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)"
+                           name="m-s-hours" id="m-s-hours" >
                     <span>:</span>
-                    <input type="number" name="m-s-minutes" id="m-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="m-s-minutes" id="m-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="m-e-hours" id="m-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="m-e-hours" id="m-e-hours" >
                     <span>:</span>
-                    <input type="number" name="m-e-minutes" id="m-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="m-e-minutes" id="m-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="m-b-hours" id="m-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="m-b-hours" id="m-b-hours" >
                     <span>:</span>
-                    <input type="number" name="m-b-minutes" id="m-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="m-b-minutes" id="m-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -58,19 +65,25 @@
                     <p>Tuesday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="t-s-hours" id="t-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="t-s-hours" id="t-s-hours" >
                     <span>:</span>
-                    <input type="number" name="t-s-minutes" id="t-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="t-s-minutes" id="t-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="t-e-hours" id="t-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="t-e-hours" id="t-e-hours" >
                     <span>:</span>
-                    <input type="number" name="t-e-minutes" id="t-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="t-e-minutes" id="t-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="t-b-hours" id="t-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="t-b-hours" id="t-b-hours" >
                     <span>:</span>
-                    <input type="number" name="t-b-minutes" id="t-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="t-b-minutes" id="t-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -82,19 +95,25 @@
                     <p>Wednesday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="w-s-hours" id="w-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="w-s-hours" id="w-s-hours" >
                     <span>:</span>
-                    <input type="number" name="w-s-minutes" id="w-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="w-s-minutes" id="w-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="w-e-hours" id="w-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="w-e-hours" id="w-e-hours" >
                     <span>:</span>
-                    <input type="number" name="w-e-minutes" id="w-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="w-e-minutes" id="w-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="w-b-hours" id="w-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="w-b-hours" id="w-b-hours" >
                     <span>:</span>
-                    <input type="number" name="w-b-minutes" id="w-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="w-b-minutes" id="w-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -106,19 +125,25 @@
                     <p>Thursday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="tr-s-hours" id="tr-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="tr-s-hours" id="tr-s-hours" >
                     <span>:</span>
-                    <input type="number" name="tr-s-minutes" id="tr-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="tr-s-minutes" id="tr-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="tr-e-hours" id="tr-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="tr-e-hours" id="tr-e-hours" >
                     <span>:</span>
-                    <input type="number" name="tr-e-minutes" id="tr-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="tr-e-minutes" id="tr-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="tr-b-hours" id="tr-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="tr-b-hours" id="tr-b-hours" >
                     <span>:</span>
-                    <input type="number" name="tr-b-minutes" id="tr-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="tr-b-minutes" id="tr-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -130,19 +155,25 @@
                     <p>Friday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="f-s-hours" id="f-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="f-s-hours" id="f-s-hours" >
                     <span>:</span>
-                    <input type="number" name="f-s-minutes" id="f-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="f-s-minutes" id="f-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="f-e-hours" id="f-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="f-e-hours" id="f-e-hours" >
                     <span>:</span>
-                    <input type="number" name="f-e-minutes" id="f-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="f-e-minutes" id="f-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="f-b-hours" id="f-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="f-b-hours" id="f-b-hours" >
                     <span>:</span>
-                    <input type="number" name="f-b-minutes" id="f-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="f-b-minutes" id="f-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -154,19 +185,25 @@
                     <p>Saturday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="sa-s-hours" id="sa-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="sa-s-hours" id="sa-s-hours" >
                     <span>:</span>
-                    <input type="number" name="sa-s-minutes" id="sa-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="sa-s-minutes" id="sa-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="sa-e-hours" id="sa-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="sa-e-hours" id="sa-e-hours" >
                     <span>:</span>
-                    <input type="number" name="sa-e-minutes" id="sa-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="sa-e-minutes" id="sa-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="sa-b-hours" id="sa-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="sa-b-hours" id="sa-b-hours" >
                     <span>:</span>
-                    <input type="number" name="sa-b-minutes" id="sa-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="sa-b-minutes" id="sa-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -178,19 +215,25 @@
                     <p>Sunday</p>
                 </div>
                 <div class="table__day__time table__day__time--start">
-                    <input type="number" name="su-s-hours" id="su-s-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="su-s-hours" id="su-s-hours" >
                     <span>:</span>
-                    <input type="number" name="su-s-minutes" id="su-s-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="su-s-minutes" id="su-s-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--end">
-                    <input type="number" name="su-e-hours" id="su-e-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="su-e-hours" id="su-e-hours" >
                     <span>:</span>
-                    <input type="number" name="su-e-minutes" id="su-e-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="su-e-minutes" id="su-e-minutes" >
                 </div>
                 <div class="table__day__time table__day__time--break">
-                    <input type="number" name="su-b-hours" id="su-b-hours" min="00" max="23">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 23)" name="su-b-hours" id="su-b-hours" >
                     <span>:</span>
-                    <input type="number" name="su-b-minutes" id="su-b-minutes" min="00" max="59">
+                    <input type="text" maxlength="2" pattern="^([0-1]?[0-9]|2[0-3])"
+                           oninput="validateInput(this, 59)" name="su-b-minutes" id="su-b-minutes" >
                 </div>
                 <div class="table__day__total-hours">
                     total hours
@@ -201,6 +244,6 @@
     </main>
     <aside></aside>
     <footer></footer>
-
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>
