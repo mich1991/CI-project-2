@@ -14,11 +14,16 @@
 </head>
 <body>
     <nav class="navbar">
-        LOGO
+        <img src="./assets/logo_transparent.png" width="75" height="75" alt="Count Me In!">
+        <ul>
+            <li><a href="#">Hours Calculator</a></li>
+            <li><a href="#">(Comming Soon) Salary Calculator</a></li>
+        </ul>
     </nav>
     <header class="hero">
         Header image/Slogan
     </header>
+    
     <main class="table">
         <form action="">
             <div class="table__header">
@@ -29,11 +34,11 @@
                 <div><p>Total Hours</p></div>
             </div>
 <!--            Single day -->
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Monday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Monday)"
                            name="m-s-hours" id="m-s-hours" >
@@ -41,206 +46,217 @@
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Monday)" name="m-s-minutes" id="m-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Monday)" name="m-e-hours" id="m-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Monday)" name="m-e-minutes" id="m-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Monday)" name="m-b-hours" id="m-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Monday)" name="m-b-minutes" id="m-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="m-total-hours"></span>
                 </div>
             </div>
 <!--            Single day END-->
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Tuesday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Tuesday)" name="t-s-hours" id="t-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Tuesday)" name="t-s-minutes" id="t-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Tuesday)" name="t-e-hours" id="t-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Tuesday)" name="t-e-minutes" id="t-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Tuesday)" name="t-b-hours" id="t-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Tuesday)" name="t-b-minutes" id="t-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="t-total-hours"></span>
                 </div>
             </div>
 
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Wednesday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Wednesday)" name="w-s-hours" id="w-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Wednesday)" name="w-s-minutes" id="w-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Wednesday)" name="w-e-hours" id="w-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Wednesday)" name="w-e-minutes" id="w-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Wednesday)" name="w-b-hours" id="w-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Wednesday)" name="w-b-minutes" id="w-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="w-total-hours"></span>
                 </div>
             </div>
 
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Thursday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Thursday)" name="tr-s-hours" id="tr-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Thursday)" name="tr-s-minutes" id="tr-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Thursday)" name="tr-e-hours" id="tr-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Thursday)" name="tr-e-minutes" id="tr-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Thursday)" name="tr-b-hours" id="tr-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Thursday)" name="tr-b-minutes" id="tr-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="tr-total-hours"></span>
                 </div>
             </div>
 
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Friday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Friday)" name="f-s-hours" id="f-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Friday)" name="f-s-minutes" id="f-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Friday)" name="f-e-hours" id="f-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Friday)" name="f-e-minutes" id="f-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Friday)" name="f-b-hours" id="f-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Friday)" name="f-b-minutes" id="f-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="f-total-hours"></span>
                 </div>
             </div>
 
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Saturday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Saturday)" name="sa-s-hours" id="sa-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Saturday)" name="sa-s-minutes" id="sa-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Saturday)" name="sa-e-hours" id="sa-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Saturday)" name="sa-e-minutes" id="sa-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Saturday)" name="sa-b-hours" id="sa-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Saturday)" name="sa-b-minutes" id="sa-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="sa-total-hours"></span>
                 </div>
             </div>
 
-            <div class="table__day">
+            <div class="table__row">
                 <div>
                     <p>Sunday</p>
                 </div>
-                <div class="table__day__time table__day__time--start">
+                <div class="table__row__time table__row__time--start">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Sunday)" name="su-s-hours" id="su-s-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Sunday)" name="su-s-minutes" id="su-s-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--end">
+                <div class="table__row__time table__row__time--end">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Sunday)" name="su-e-hours" id="su-e-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Sunday)" name="su-e-minutes" id="su-e-minutes" >
                 </div>
-                <div class="table__day__time table__day__time--break">
+                <div class="table__row__time table__row__time--break">
                     <input type="text" maxlength="2"
                            oninput="validateInput(this, 23, Sunday)" name="su-b-hours" id="su-b-hours" >
                     <span>:</span>
                     <input type="text" maxlength="2"  value="00"
                            oninput="validateInput(this, 59, Sunday)" name="su-b-minutes" id="su-b-minutes" >
                 </div>
-                <div class="table__day__total-hours">
+                <div class="table__row__total-hours">
                     <span id="su-total-hours"></span>
                 </div>
             </div>
-            <div>
-                <span id="week-total-hours"></span>
+            <div class="table__row--last">
+                <div>
+                    <button class="button">Clear All Fields</button>
+                </div>
+                <label for="employee">Employee name</label>
+                <input type="text" name="employee" id="employee" placeholder="Name...">
+                <div>
+                    <button class="button" type="submit" id="submit-button">Submit</button>
+                </div>
+                <div>
+                    <span><strong>Total Hours:</strong></span>
+                    <span id="week-total-hours"></span>
+                </div>
             </div>
         </form>
     </main>
