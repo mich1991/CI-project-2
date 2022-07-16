@@ -61,9 +61,12 @@ const sundayBreakMinutes = document.querySelector('#su-b-minutes');
 const sundayTotalHours = document.querySelector('#su-total-hours');
 
 const weekTotalHoursDOMel = document.querySelector('#week-total-hours');
+// each day will append value to a specific index of array according to its inner weekArrayPosition property
 const weekTotalHoursArray = [];
 
 
+
+//Day Class START =====
 class Day {
     workHourStart;
     workMinuteStart;
@@ -75,8 +78,7 @@ class Day {
     weekArrayPosition = 0
     static id = 0
 
-    constructor(name, hourStart, minuteStart, hourEnd, minuteEnd, hourBreak, minuteBreak, total) {
-        this.name = name;
+    constructor(hourStart, minuteStart, hourEnd, minuteEnd, hourBreak, minuteBreak, total) {
         this.workHourStart = hourStart;
         this.workMinuteStart = minuteStart;
         this.workHourEnd = hourEnd;
@@ -113,25 +115,15 @@ class Day {
         this.totalWorkTime.innerText ='';
     }
 }
+//Day Class START =====
 
 const countWholeWeek = () => {
-   weekTotalHoursDOMel.innerHTML = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2)
+   weekTotalHoursDOMel.textContent = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2)
 }
-    // weekTotalHoursDOMel.textContent
-
-const Monday = new Day('monday', mondayStartHours, mondayStartMinutes, mondayEndHours, mondayEndMinutes, mondayBreakHours, mondayBreakMinutes, mondayTotalHours)
-const Tuesday = new Day('tuesday', tuesdayStartHours, tuesdayStartMinutes, tuesdayEndHours, tuesdayEndMinutes, tuesdayBreakHours, tuesdayBreakMinutes, tuesdayTotalHours )
-const Wednesday = new Day('wednesday', wednesdayStartHours, wednesdayStartMinutes, wednesdayEndHours, wednesdayEndMinutes, wednesdayBreakHours, wednesdayBreakMinutes, wednesdayTotalHours )
-const Thursday = new Day('thursday', thursdayStartHours, thursdayStartMinutes, thursdayEndHours, thursdayEndMinutes, thursdayBreakHours, thursdayBreakMinutes, thursdayTotalHours )
-const Friday = new Day('friday', fridayStartHours, fridayStartMinutes, fridayEndHours, fridayEndMinutes, fridayBreakHours, fridayBreakMinutes, fridayTotalHours )
-const Saturday = new Day('saturday', saturdayStartHours, saturdayStartMinutes, saturdayEndHours, saturdayEndMinutes, saturdayBreakHours, saturdayBreakMinutes, saturdayTotalHours )
-const Sunday = new Day('sunday', sundayStartHours, sundayStartMinutes, sundayEndHours, sundayEndMinutes, sundayBreakHours, sundayBreakMinutes, sundayTotalHours )
-
 
 function validateInput (input, maxValue, day) {
     // Stackoverflow solution
     // https://stackoverflow.com/questions/33299639/allow-only-2-numbers-on-input-type-number
-    // this.value = this.value.replace(/[^\d]/, '')
     input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
     if(input.value > maxValue){
         input.classList.add('error')
@@ -142,4 +134,15 @@ function validateInput (input, maxValue, day) {
     }
     countWholeWeek()
 }
+
+
+
+const Monday = new Day( mondayStartHours, mondayStartMinutes, mondayEndHours, mondayEndMinutes, mondayBreakHours, mondayBreakMinutes, mondayTotalHours)
+const Tuesday = new Day( tuesdayStartHours, tuesdayStartMinutes, tuesdayEndHours, tuesdayEndMinutes, tuesdayBreakHours, tuesdayBreakMinutes, tuesdayTotalHours )
+const Wednesday = new Day( wednesdayStartHours, wednesdayStartMinutes, wednesdayEndHours, wednesdayEndMinutes, wednesdayBreakHours, wednesdayBreakMinutes, wednesdayTotalHours )
+const Thursday = new Day( thursdayStartHours, thursdayStartMinutes, thursdayEndHours, thursdayEndMinutes, thursdayBreakHours, thursdayBreakMinutes, thursdayTotalHours )
+const Friday = new Day( fridayStartHours, fridayStartMinutes, fridayEndHours, fridayEndMinutes, fridayBreakHours, fridayBreakMinutes, fridayTotalHours )
+const Saturday = new Day( saturdayStartHours, saturdayStartMinutes, saturdayEndHours, saturdayEndMinutes, saturdayBreakHours, saturdayBreakMinutes, saturdayTotalHours )
+const Sunday = new Day( sundayStartHours, sundayStartMinutes, sundayEndHours, sundayEndMinutes, sundayBreakHours, sundayBreakMinutes, sundayTotalHours )
+
 
