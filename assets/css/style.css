@@ -3,14 +3,40 @@
     padding: 0;
     box-sizing: content-box;
 }
+input {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid black;
+}
+.error{
+    background-color: #ff3939;
+}
 
 .table{
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
+
 .table__header,
 .table__day{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    margin: 5px;
+}
+.table__header{
+    background-color: #0a8585;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    height:30px;
+}
+
+.table__day__time input{
+    width: 30px;
+    height: 30px;
+    text-align: center;
 }
