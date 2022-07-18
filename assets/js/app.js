@@ -60,7 +60,7 @@ const sundayBreakHours = document.querySelector('#su-b-hours');
 const sundayBreakMinutes = document.querySelector('#su-b-minutes');
 const sundayTotalHours = document.querySelector('#su-total-hours');
 
-const hoursCalculator = document.querySelector('#hours-calculator')
+const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
 const weekTotalHoursDOMel = document.querySelector('#week-total-hours');
 // each day will append value to a specific index of array according to its inner weekArrayPosition property
