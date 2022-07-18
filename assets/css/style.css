@@ -8,7 +8,11 @@
 }
 .navbar{
     display: flex;
-
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: linear-gradient(180deg, rgba(75,138,56,1) 23%, rgba(64,122,56,1) 100%);
+}
+.navbar a {
+    color: rgba(111,224,190,1);
 }
 
 .table{

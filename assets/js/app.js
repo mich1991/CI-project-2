@@ -60,10 +60,11 @@ const sundayBreakHours = document.querySelector('#su-b-hours');
 const sundayBreakMinutes = document.querySelector('#su-b-minutes');
 const sundayTotalHours = document.querySelector('#su-total-hours');
 
+const hoursCalculator = document.querySelector('#hours-calculator')
+
 const weekTotalHoursDOMel = document.querySelector('#week-total-hours');
 // each day will append value to a specific index of array according to its inner weekArrayPosition property
 const weekTotalHoursArray = [];
-
 
 
 //Day Class START =====
@@ -108,11 +109,19 @@ class Day {
         } else {
             this.clearTotalHours()
             weekTotalHoursArray[this.weekArrayPosition] = 0;
-
         }
     }
     clearTotalHours(){
         this.totalWorkTime.innerText ='';
+    }
+    clearInputs(){
+        this.workHourStart.value = '';
+        this.workMinuteStart.value = '00';
+        this.workHourEnd.value = '';
+        this.workMinuteEnd.value = '00';
+        this.workHourBreak.value = ''
+        this.workMinuteBreak.value = '00';
+        this.totalWorkTime.innerText = ''
     }
 }
 //Day Class START =====
@@ -135,6 +144,15 @@ function validateInput (input, maxValue, day) {
     countWholeWeek()
 }
 
+function onSubmitHandler(e){
+    console.log(e);
+    e.preventDefault()
+}
+
+function clearCalculator(){
+    let hoursCalculator = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday];
+    hoursCalculator.forEach(day => day.clearInputs());
+}
 
 
 const Monday = new Day( mondayStartHours, mondayStartMinutes, mondayEndHours, mondayEndMinutes, mondayBreakHours, mondayBreakMinutes, mondayTotalHours)
