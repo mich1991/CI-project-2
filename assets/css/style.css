@@ -15,6 +15,9 @@
 .container{
     min-height: calc(100vh - var(--navbarHeight) - var(--footerHeight));
 }
+.mobile-only{
+    display: none;
+}
 
 .navbar{
     height: var(--navbarHeight);
@@ -216,6 +219,33 @@ footer p {
     padding: 0 10%;
     color: rgba(111,224,190,1);
 }
-@media (max-width: 780px) {
-    /*    Magic here*/
+@media (max-width: 750px) {
+    .mobile-only{
+        display: inline-block;
+    }
+    .mobile-label{
+        margin-left: 5px;
+    }
+    .table__header{
+        display: none;
+    }
+    .table__row{
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+        margin: 0;
+    }
+    .table__row__time input{
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+    .table__row div:first-of-type{
+        background: rgb(75,138,56);
+        background: linear-gradient(180deg, rgba(75,138,56,1) 23%, rgba(64,122,56,1) 100%);
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    .table__row__time{
+        margin: 0 10px;
+    }
 }
