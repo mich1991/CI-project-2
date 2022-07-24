@@ -33,7 +33,7 @@
     </header>
 
     <main class="table">
-        <form action="" id="hours-calculator">
+        <form id="hours-calculator">
             <div class="table__header">
                 <div><p>Day</p></div>
                 <div><p>Start Time</p></div>
@@ -259,7 +259,7 @@
                 <label for="employee">Employee name</label>
                 <input type="text" name="employee" id="employee" placeholder="Name...">
                 <div>
-                    <button class="button" type="button" id="submit-button" onsubmit="onSubmitHandler(event)">Submit
+                    <button class="button" type="submit">Submit
                     </button>
                 </div>
                 <div>
@@ -268,10 +268,12 @@
                 </div>
             </div>
         </form>
-        <div class="employee-display">
+    </main>
+    <section>
+        <div id="employee-display">
 
         </div>
-    </main>
+    </section>
     <aside class="newsletter">
         <h2>Subscribe Our Newsletter & Join Us</h2>
         <form action="" method="post">

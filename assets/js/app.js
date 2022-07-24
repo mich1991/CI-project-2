@@ -62,9 +62,13 @@ const sundayTotalHours = document.querySelector('#su-total-hours');
 
 const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
+const employeeName = document.querySelector('#employee')
 const weekTotalHoursDOMel = document.querySelector('#week-total-hours');
 // each day will append value to a specific index of array according to its inner weekArrayPosition property
-const weekTotalHoursArray = [];
+let weekTotalHoursArray = [];
+let employeeID = 0
+let employeesArray = []
+let employeeDisplayDOMel = document.querySelector('#employee-display')
 
 
 //Day Class START =====
@@ -144,14 +148,40 @@ function validateInput (input, maxValue, day) {
     countWholeWeek()
 }
 
-function onSubmitHandler(e){
-    console.log(e);
-    e.preventDefault()
+function handleSubmit(e) {
+    e.preventDefault();
+    let name = employeeName.value
+    let totalHours = weekTotalHoursArray.reduce((a,c) => a + c, 0)
+    employeesArray.push({ id : employeeID, name, totalHours})
+    employeeID++
+    clearParentElement(employeeDisplayDOMel);
+    employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
+
 }
+
+hoursCalculatorForm.addEventListener('submit', handleSubmit)
 
 function clearCalculator(){
     let hoursCalculator = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday];
     hoursCalculator.forEach(day => day.clearInputs());
+    employeeName.value = '';
+    weekTotalHoursArray = []
+    weekTotalHoursDOMel.innerHTML = ''
+}
+
+const appendDivToDOM = (parentElement, content) => {
+    let div = document.createElement('div');
+    div.innerHTML = `<p>${content.name} - <strong>${content.totalHours} h </strong></p>  <a class="button" onclick="removeEmployee(${content.id})">delete</a>`;
+    parentElement.append(div);
+}
+
+const clearParentElement = (parentElement) => {
+    parentElement.innerHTML = ''
+}
+const removeEmployee = (id) => {
+    clearParentElement(employeeDisplayDOMel)
+    employeesArray = employeesArray.filter(employee => employee.id !== id);
+    employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
 }
 
 
