@@ -17,9 +17,6 @@ daysOfTheWeekObjects.forEach(day => {
     })
     daysOftheWeek[day.name] = domElements
 })
-
-
-
 const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
 const employeeName = document.querySelector('#employee')
@@ -151,4 +148,3 @@ const Thursday = new Day(...daysOftheWeek['Thursday']);
 const Friday = new Day(...daysOftheWeek['Friday']);
 const Saturday = new Day(...daysOftheWeek['Saturday']);
 const Sunday = new Day(...daysOftheWeek['Sunday']);
-
