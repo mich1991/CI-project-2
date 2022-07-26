@@ -25,7 +25,11 @@
 </nav>
 <div class="container">
     <header class="hero">
-        <img src="./assets/images/sl_030320_28610_35.jpg" alt="banner">
+        <img srcset="assets/images/hero-494x494.jpg 500w,
+                    assets/images/hero-1000x494.jpg 1000w,
+                    assets/images/hero-2000x494.jpg 2000w"
+             src="assets/images/hero-2000x494.jpg"
+             alt="banner">
         <div>
             <h1>Easy way to count working hours</h1>
             <p>To make your life easier</p>
@@ -361,9 +365,11 @@
                 <div>
                     <button class="button" type="button" onclick="clearCalculator()">Clear All Fields</button>
                 </div>
-                <label for="employee">Employee name</label>
-                <input type="text" name="employee" id="employee" placeholder="Name...">
-                <div>
+                <div class="flex-around" data-order="3">
+                    <label for="employee">Employee name</label>
+                    <input type="text" name="employee" id="employee" placeholder="Name...">
+                </div>
+                <div data-order="4">
                     <button class="button" type="submit">Submit
                     </button>
                 </div>
