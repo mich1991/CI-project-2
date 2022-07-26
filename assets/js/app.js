@@ -8,14 +8,15 @@ const daysOfTheWeekObjects = [
     {name: 'Sunday', prefix: 'su'},
 ];
 const domInputElementsSufix = ['-s-hours','-s-minutes','-e-hours','-e-minutes','-b-hours','-b-minutes','-total-hours'];
-const daysOftheWeek = [];
+
+const daysOftheWeek = {};
 
 daysOfTheWeekObjects.forEach(day => {
     let domElements = [];
     domInputElementsSufix.forEach(sufix => {
        domElements.push(document.querySelector(`#${day.prefix}${sufix}`))
     })
-    daysOftheWeek[day.name] = domElements
+    daysOftheWeek[day.name] = domElements;
 })
 const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
@@ -30,27 +31,19 @@ let employeeDisplayDOMel = document.querySelector('#employee-display')
 
 //Day Class START =====
 class Day {
-    workHourStart;
-    workMinuteStart;
-    workHourEnd;
-    workMinuteEnd;
-    workHourBreak = 0
-    workMinuteBreak = 0
-    totalWorkTime;
-    weekArrayPosition = 0
-    static id = 0
+    static id = 0;
 
-    constructor(hourStart, minuteStart, hourEnd, minuteEnd, hourBreak, minuteBreak, total) {
-        this.workHourStart = hourStart;
-        this.workMinuteStart = minuteStart;
-        this.workHourEnd = hourEnd;
-        this.workMinuteEnd = minuteEnd;
-        this.workHourBreak = hourBreak;
-        this.workMinuteBreak = minuteBreak;
-        this.totalWorkTime = total;
+    constructor(hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl, totalEl) {
+        this.workHourStart = hourStartEl;
+        this.workMinuteStart = minuteStartEl;
+        this.workHourEnd = hourEndEl;
+        this.workMinuteEnd = minuteEndEl;
+        this.workHourBreak = hourBreakEl;
+        this.workMinuteBreak = minuteBreakEl;
+        this.totalWorkTime = totalEl;
         this.weekArrayPosition = Day.id
         //Increment array position on each instance of class
-        Day.id++
+        Day.id++;
     }
 
     countDayShift(){
@@ -61,14 +54,14 @@ class Day {
         if (this.workHourStart.value !== '' && this.workHourEnd.value !== '' ){
             if (startMinutes > endMinutes) {
                 let dayMaxMinutes = 24 * 60;
-                shiftDuration = ((dayMaxMinutes - startMinutes + endMinutes - breakMinutes) / 60).toFixed(2)
+                shiftDuration = ((dayMaxMinutes - startMinutes + endMinutes - breakMinutes) / 60).toFixed(2);
             } else {
                 shiftDuration = ((endMinutes - startMinutes - breakMinutes) / 60).toFixed(2);
             }
             this.totalWorkTime.innerText = shiftDuration;
             weekTotalHoursArray[this.weekArrayPosition] = +shiftDuration;
         } else {
-            this.clearTotalHours()
+            this.clearTotalHours();
             weekTotalHoursArray[this.weekArrayPosition] = 0;
         }
     }
@@ -88,7 +81,7 @@ class Day {
 //Day Class START =====
 
 const countWholeWeek = () => {
-   weekTotalHoursDOMel.textContent = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2)
+   weekTotalHoursDOMel.textContent = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2);
 }
 
 function validateInput (input, maxValue, day) {
@@ -96,13 +89,13 @@ function validateInput (input, maxValue, day) {
     // https://stackoverflow.com/questions/33299639/allow-only-2-numbers-on-input-type-number
     input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
     if(input.value > maxValue){
-        input.classList.add('error')
+        input.classList.add('error');
         day.clearTotalHours();
     } else {
-        input.classList.remove('error')
-        day.countDayShift()
+        input.classList.remove('error');
+        day.countDayShift();
     }
-    countWholeWeek()
+    countWholeWeek();
 }
 
 function handleSubmit(e) {
@@ -136,11 +129,12 @@ const clearParentElement = (parentElement) => {
     parentElement.innerHTML = ''
 }
 const removeEmployee = (id) => {
-    clearParentElement(employeeDisplayDOMel)
+    clearParentElement(employeeDisplayDOMel);
     employeesArray = employeesArray.filter(employee => employee.id !== id);
     employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
 }
-
+const [p1] = daysOftheWeek['Monday']
+console.log(p1)
 const Monday = new Day(...daysOftheWeek['Monday']);
 const Tuesday = new Day(...daysOftheWeek['Tuesday']);
 const Wednesday = new Day(...daysOftheWeek['Wednesday']);
