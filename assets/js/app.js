@@ -1,64 +1,24 @@
-//Monday
-const mondayStartHours = document.querySelector('#m-s-hours');
-const mondayStartMinutes = document.querySelector('#m-s-minutes');
-const mondayEndHours = document.querySelector('#m-e-hours');
-const mondayEndMinutes = document.querySelector('#m-e-minutes');
-const mondayBreakHours = document.querySelector('#m-b-hours');
-const mondayBreakMinutes = document.querySelector('#m-b-minutes');
-const mondayTotalHours = document.querySelector('#m-total-hours');
-// Tuesday
-const tuesdayStartHours = document.querySelector('#t-s-hours');
-const tuesdayStartMinutes = document.querySelector('#t-s-minutes');
-const tuesdayEndHours = document.querySelector('#t-e-hours');
-const tuesdayEndMinutes = document.querySelector('#t-e-minutes');
-const tuesdayBreakHours = document.querySelector('#t-b-hours');
-const tuesdayBreakMinutes = document.querySelector('#t-b-minutes');
-const tuesdayTotalHours = document.querySelector('#t-total-hours');
+const daysOfTheWeekObjects = [
+    {name: 'Monday', prefix: 'm'},
+    {name: 'Tuesday', prefix: 't'},
+    {name: 'Wednesday', prefix: 'w'},
+    {name: 'Thursday', prefix: 'tr'},
+    {name: 'Friday', prefix: 'f'},
+    {name: 'Saturday', prefix: 'sa'},
+    {name: 'Sunday', prefix: 'su'},
+];
+const domInputElementsSufix = ['-s-hours','-s-minutes','-e-hours','-e-minutes','-b-hours','-b-minutes','-total-hours'];
+const daysOftheWeek = [];
 
-// Wednesday
-const wednesdayStartHours = document.querySelector('#w-s-hours');
-const wednesdayStartMinutes = document.querySelector('#w-s-minutes');
-const wednesdayEndHours = document.querySelector('#w-e-hours');
-const wednesdayEndMinutes = document.querySelector('#w-e-minutes');
-const wednesdayBreakHours = document.querySelector('#w-b-hours');
-const wednesdayBreakMinutes = document.querySelector('#w-b-minutes');
-const wednesdayTotalHours = document.querySelector('#w-total-hours');
+daysOfTheWeekObjects.forEach(day => {
+    let domElements = [];
+    domInputElementsSufix.forEach(sufix => {
+       domElements.push(document.querySelector(`#${day.prefix}${sufix}`))
+    })
+    daysOftheWeek[day.name] = domElements
+})
 
-// Thursday
-const thursdayStartHours = document.querySelector('#tr-s-hours');
-const thursdayStartMinutes = document.querySelector('#tr-s-minutes');
-const thursdayEndHours = document.querySelector('#tr-e-hours');
-const thursdayEndMinutes = document.querySelector('#tr-e-minutes');
-const thursdayBreakHours = document.querySelector('#tr-b-hours');
-const thursdayBreakMinutes = document.querySelector('#tr-b-minutes');
-const thursdayTotalHours = document.querySelector('#tr-total-hours');
 
-// Friday
-const fridayStartHours = document.querySelector('#f-s-hours');
-const fridayStartMinutes = document.querySelector('#f-s-minutes');
-const fridayEndHours = document.querySelector('#f-e-hours');
-const fridayEndMinutes = document.querySelector('#f-e-minutes');
-const fridayBreakHours = document.querySelector('#f-b-hours');
-const fridayBreakMinutes = document.querySelector('#f-b-minutes');
-const fridayTotalHours = document.querySelector('#f-total-hours');
-
-// Saturday
-const saturdayStartHours = document.querySelector('#sa-s-hours');
-const saturdayStartMinutes = document.querySelector('#sa-s-minutes');
-const saturdayEndHours = document.querySelector('#sa-e-hours');
-const saturdayEndMinutes = document.querySelector('#sa-e-minutes');
-const saturdayBreakHours = document.querySelector('#sa-b-hours');
-const saturdayBreakMinutes = document.querySelector('#sa-b-minutes');
-const saturdayTotalHours = document.querySelector('#sa-total-hours');
-
-// Sunday
-const sundayStartHours = document.querySelector('#su-s-hours');
-const sundayStartMinutes = document.querySelector('#su-s-minutes');
-const sundayEndHours = document.querySelector('#su-e-hours');
-const sundayEndMinutes = document.querySelector('#su-e-minutes');
-const sundayBreakHours = document.querySelector('#su-b-hours');
-const sundayBreakMinutes = document.querySelector('#su-b-minutes');
-const sundayTotalHours = document.querySelector('#su-total-hours');
 
 const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
@@ -184,13 +144,11 @@ const removeEmployee = (id) => {
     employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
 }
 
-
-const Monday = new Day( mondayStartHours, mondayStartMinutes, mondayEndHours, mondayEndMinutes, mondayBreakHours, mondayBreakMinutes, mondayTotalHours)
-const Tuesday = new Day( tuesdayStartHours, tuesdayStartMinutes, tuesdayEndHours, tuesdayEndMinutes, tuesdayBreakHours, tuesdayBreakMinutes, tuesdayTotalHours )
-const Wednesday = new Day( wednesdayStartHours, wednesdayStartMinutes, wednesdayEndHours, wednesdayEndMinutes, wednesdayBreakHours, wednesdayBreakMinutes, wednesdayTotalHours )
-const Thursday = new Day( thursdayStartHours, thursdayStartMinutes, thursdayEndHours, thursdayEndMinutes, thursdayBreakHours, thursdayBreakMinutes, thursdayTotalHours )
-const Friday = new Day( fridayStartHours, fridayStartMinutes, fridayEndHours, fridayEndMinutes, fridayBreakHours, fridayBreakMinutes, fridayTotalHours )
-const Saturday = new Day( saturdayStartHours, saturdayStartMinutes, saturdayEndHours, saturdayEndMinutes, saturdayBreakHours, saturdayBreakMinutes, saturdayTotalHours )
-const Sunday = new Day( sundayStartHours, sundayStartMinutes, sundayEndHours, sundayEndMinutes, sundayBreakHours, sundayBreakMinutes, sundayTotalHours )
-
+const Monday = new Day(...daysOftheWeek['Monday']);
+const Tuesday = new Day(...daysOftheWeek['Tuesday']);
+const Wednesday = new Day(...daysOftheWeek['Wednesday']);
+const Thursday = new Day(...daysOftheWeek['Thursday']);
+const Friday = new Day(...daysOftheWeek['Friday']);
+const Saturday = new Day(...daysOftheWeek['Saturday']);
+const Sunday = new Day(...daysOftheWeek['Sunday']);
 
