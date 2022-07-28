@@ -13,11 +13,13 @@ const daysOftheWeek = {};
 
 daysOfTheWeekObjects.forEach(day => {
     let domElements = [];
+    domElements.push(document.querySelector(`#${day.name}`))
     domInputElementsSufix.forEach(sufix => {
        domElements.push(document.querySelector(`#${day.prefix}${sufix}`))
     })
     daysOftheWeek[day.name] = domElements;
 })
+console.log(daysOftheWeek);
 const hoursCalculatorForm = document.querySelector('#hours-calculator')
 
 const employeeName = document.querySelector('#employee')
@@ -33,7 +35,8 @@ let employeeDisplayDOMel = document.querySelector('#employee-display')
 class Day {
     static id = 0;
 
-    constructor(hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl, totalEl) {
+    constructor(dayContainer, hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl, totalEl) {
+        this.dayContainer = dayContainer;
         this.workHourStart = hourStartEl;
         this.workMinuteStart = minuteStartEl;
         this.workHourEnd = hourEndEl;
@@ -44,6 +47,10 @@ class Day {
         this.weekArrayPosition = Day.id
         //Increment array position on each instance of class
         Day.id++;
+        this.dayContainer.addEventListener('input' , () => {
+            const inputsArray = [this.workHourStart, this.workMinuteStart, this.workHourEnd, this.workMinuteEnd, this.workHourBreak, this.workMinuteBreak]
+            inputsArray.forEach(input => this.validateInput(input))
+        })
     }
 
     countDayShift(){
@@ -58,14 +65,15 @@ class Day {
             } else {
                 shiftDuration = ((endMinutes - startMinutes - breakMinutes) / 60).toFixed(2);
             }
+            if (shiftDuration < 0) shiftDuration = '0.00';
             this.totalWorkTime.innerText = shiftDuration;
             weekTotalHoursArray[this.weekArrayPosition] = +shiftDuration;
         } else {
-            this.clearTotalHours();
+            this.clearShiftHours();
             weekTotalHoursArray[this.weekArrayPosition] = 0;
         }
     }
-    clearTotalHours(){
+    clearShiftHours(){
         this.totalWorkTime.innerText ='';
     }
     clearInputs(){
@@ -77,26 +85,33 @@ class Day {
         this.workMinuteBreak.value = '00';
         this.totalWorkTime.innerText = ''
     }
+    validateInput (input) {
+        const maxValue = +input.dataset.valid
+        // Stackoverflow solution
+        // https://stackoverflow.com/questions/33299639/allow-only-2-numbers-on-input-type-number
+        input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
+        if(input.value > maxValue){
+            input.classList.add('error');
+            this.clearShiftHours();
+        } else {
+            input.classList.remove('error');
+            this.countDayShift();
+        }
+    }
 }
-//Day Class START =====
+//Day Class END =====
+// HoursCalculator Class START =====
+class HoursCalculator{
+
+
+}
+// HoursCalculator Class END ====
 
 const countWholeWeek = () => {
    weekTotalHoursDOMel.textContent = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2);
 }
 
-function validateInput (input, maxValue, day) {
-    // Stackoverflow solution
-    // https://stackoverflow.com/questions/33299639/allow-only-2-numbers-on-input-type-number
-    input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
-    if(input.value > maxValue){
-        input.classList.add('error');
-        day.clearTotalHours();
-    } else {
-        input.classList.remove('error');
-        day.countDayShift();
-    }
-    countWholeWeek();
-}
+
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -133,8 +148,11 @@ const removeEmployee = (id) => {
     employeesArray = employeesArray.filter(employee => employee.id !== id);
     employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
 }
-const [p1] = daysOftheWeek['Monday']
-console.log(p1)
+// const validateDay = (dayEl) => {
+//     const allInputsEl = dayEl.querySelectorAll('input')
+//     allInputsEl.forEach(input => console.log(input.dataset.valid))
+// }
+
 const Monday = new Day(...daysOftheWeek['Monday']);
 const Tuesday = new Day(...daysOftheWeek['Tuesday']);
 const Wednesday = new Day(...daysOftheWeek['Wednesday']);

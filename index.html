@@ -46,42 +46,42 @@
                 <div><p>Total Hours</p></div>
             </div>
             <!--            Single day -->
-            <div class="table__row">
+            <div class="table__row" id="Monday">
                 <div>
                     <p>Monday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Monday)"
+                    <input type="text" maxlength="2" data-valid="23"
+
                            name="m-s-hours" id="m-s-hours"
                            aria-label="Monday starting hour">
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Monday)"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+
                            name="m-s-minutes" id="m-s-minutes"
                            aria-label="Monday starting minute">
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Monday)" name="m-e-hours" id="m-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                            name="m-e-hours" id="m-e-hours"
                            aria-label="Monday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Monday)" name="m-e-minutes" id="m-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                            name="m-e-minutes" id="m-e-minutes"
                            aria-label="Monday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Monday)" name="m-b-hours" id="m-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                            name="m-b-hours" id="m-b-hours"
                            aria-label="Monday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Monday)" name="m-b-minutes" id="m-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                            name="m-b-minutes" id="m-b-minutes"
                            aria-label="Monday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -91,43 +91,43 @@
                 </div>
             </div>
             <!--            Single day END-->
-            <div class="table__row">
+            <div class="table__row" id="Tuesday">
                 <div>
                     <p>Tuesday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Tuesday)" name="t-s-hours" id="t-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="t-s-hours" id="t-s-hours"
                            aria-label="Tuesday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Tuesday)" name="t-s-minutes" id="t-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="t-s-minutes" id="t-s-minutes"
                            aria-label="Tuesday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
 
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Tuesday)" name="t-e-hours" id="t-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="t-e-hours" id="t-e-hours"
                            aria-label="Tuesday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Tuesday)" name="t-e-minutes" id="t-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="t-e-minutes" id="t-e-minutes"
                            aria-label="Tuesday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Tuesday)" name="t-b-hours" id="t-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="t-b-hours" id="t-b-hours"
                            aria-label="Tuesday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Tuesday)" name="t-b-minutes" id="t-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="t-b-minutes" id="t-b-minutes"
                            aria-label="Tuesday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -137,42 +137,42 @@
                 </div>
             </div>
 
-            <div class="table__row">
+            <div class="table__row" id="Wednesday">
                 <div>
                     <p>Wednesday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Wednesday)" name="w-s-hours" id="w-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="w-s-hours" id="w-s-hours"
                            aria-label="Wednesday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Wednesday)" name="w-s-minutes" id="w-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="w-s-minutes" id="w-s-minutes"
                            aria-label="Wednesday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Wednesday)" name="w-e-hours" id="w-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="w-e-hours" id="w-e-hours"
                            aria-label="Wednesday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Wednesday)" name="w-e-minutes" id="w-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="w-e-minutes" id="w-e-minutes"
                            aria-label="Wednesday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Wednesday)" name="w-b-hours" id="w-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="w-b-hours" id="w-b-hours"
                            aria-label="Wednesday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Wednesday)" name="w-b-minutes" id="w-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="w-b-minutes" id="w-b-minutes"
                            aria-label="Wednesday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -182,42 +182,42 @@
                 </div>
             </div>
 
-            <div class="table__row">
+            <div class="table__row" id="Thursday">
                 <div>
                     <p>Thursday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Thursday)" name="tr-s-hours" id="tr-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="tr-s-hours" id="tr-s-hours"
                            aria-label="Thursday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Thursday)" name="tr-s-minutes" id="tr-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="tr-s-minutes" id="tr-s-minutes"
                            aria-label="Thursday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Thursday)" name="tr-e-hours" id="tr-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="tr-e-hours" id="tr-e-hours"
                            aria-label="Thursday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Thursday)" name="tr-e-minutes" id="tr-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="tr-e-minutes" id="tr-e-minutes"
                            aria-label="Thursday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Thursday)" name="tr-b-hours" id="tr-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="tr-b-hours" id="tr-b-hours"
                            aria-label="Thursday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Thursday)" name="tr-b-minutes" id="tr-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="tr-b-minutes" id="tr-b-minutes"
                            aria-label="Thursday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -227,42 +227,42 @@
                 </div>
             </div>
 
-            <div class="table__row">
+            <div class="table__row" id="Friday">
                 <div>
                     <p>Friday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Friday)" name="f-s-hours" id="f-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="f-s-hours" id="f-s-hours"
                            aria-label="Friday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Friday)" name="f-s-minutes" id="f-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="f-s-minutes" id="f-s-minutes"
                            aria-label="Friday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Friday)" name="f-e-hours" id="f-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="f-e-hours" id="f-e-hours"
                            aria-label="Friday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Friday)" name="f-e-minutes" id="f-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="f-e-minutes" id="f-e-minutes"
                            aria-label="Friday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Friday)" name="f-b-hours" id="f-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="f-b-hours" id="f-b-hours"
                            aria-label="Friday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Friday)" name="f-b-minutes" id="f-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="f-b-minutes" id="f-b-minutes"
                            aria-label="Friday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -272,42 +272,42 @@
                 </div>
             </div>
 
-            <div class="table__row">
+            <div class="table__row" id="Saturday">
                 <div>
                     <p>Saturday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Saturday)" name="sa-s-hours" id="sa-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="sa-s-hours" id="sa-s-hours"
                            aria-label="Saturday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Saturday)" name="sa-s-minutes" id="sa-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="sa-s-minutes" id="sa-s-minutes"
                            aria-label="Saturday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Saturday)" name="sa-e-hours" id="sa-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="sa-e-hours" id="sa-e-hours"
                            aria-label="Saturday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Saturday)" name="sa-e-minutes" id="sa-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="sa-e-minutes" id="sa-e-minutes"
                            aria-label="Saturday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Saturday)" name="sa-b-hours" id="sa-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="sa-b-hours" id="sa-b-hours"
                            aria-label="Saturday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Saturday)" name="sa-b-minutes" id="sa-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="sa-b-minutes" id="sa-b-minutes"
                            aria-label="Saturday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
@@ -317,42 +317,42 @@
                 </div>
             </div>
 
-            <div class="table__row">
+            <div class="table__row" id="Sunday">
                 <div>
                     <p>Sunday</p>
                 </div>
                 <div class="table__row__time table__row__time--start">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Sunday)" name="su-s-hours" id="su-s-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="su-s-hours" id="su-s-hours"
                            aria-label="Sunday starting hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Sunday)" name="su-s-minutes" id="su-s-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="su-s-minutes" id="su-s-minutes"
                            aria-label="Sunday starting minutes"
                     >
                     <span class="mobile-only mobile-label">Starting Time</span>
                 </div>
                 <div class="table__row__time table__row__time--end">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Sunday)" name="su-e-hours" id="su-e-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="su-e-hours" id="su-e-hours"
                            aria-label="Sunday ending hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Sunday)" name="su-e-minutes" id="su-e-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="su-e-minutes" id="su-e-minutes"
                            aria-label="Sunday ending minutes"
                     >
                     <span class="mobile-only mobile-label">Ending Time</span>
                 </div>
                 <div class="table__row__time table__row__time--break">
-                    <input type="text" maxlength="2"
-                           oninput="validateInput(this, 23, Sunday)" name="su-b-hours" id="su-b-hours"
+                    <input type="text" maxlength="2" data-valid="23"
+                           table__row name="su-b-hours" id="su-b-hours"
                            aria-label="Sunday break duration hour"
                     >
                     <span>:</span>
-                    <input type="text" maxlength="2" value="00"
-                           oninput="validateInput(this, 59, Sunday)" name="su-b-minutes" id="su-b-minutes"
+                    <input type="text" maxlength="2" data-valid="59" value="00"
+                           table__row name="su-b-minutes" id="su-b-minutes"
                            aria-label="Sunday break duration minutes"
                     >
                     <span class="mobile-only mobile-label">Break Duration</span>
