@@ -30,10 +30,19 @@ class Day {
         this.workHourBreak = hourBreakEl;
         this.workMinuteBreak = minuteBreakEl;
         this.totalWorkTime = totalEl;
-        //Increment array position on each instance of class
+
         this.dayContainer.addEventListener('input' , () => {
+            const errorArray = [];
             const inputsArray = [this.workHourStart, this.workMinuteStart, this.workHourEnd, this.workMinuteEnd, this.workHourBreak, this.workMinuteBreak]
-            inputsArray.forEach(input => this.validateInput(input))
+            inputsArray.forEach(input => {
+                errorArray.push(this.validateInput(input))
+            })
+            if (errorArray.includes(false)){
+                this.clearShiftHours()
+            } else {
+                console.log('everything fine')
+                this.totalWorkTime.innerText = this.countDayShift().toFixed(2);
+            }
         })
     }
 
@@ -50,7 +59,6 @@ class Day {
                 shiftDuration = ((endMinutes - startMinutes - breakMinutes) / 60).toFixed(2);
             }
             if (shiftDuration < 0) shiftDuration = '0.00';
-            this.totalWorkTime.innerText = shiftDuration;
             return +shiftDuration;
         } else {
             this.clearShiftHours();
@@ -58,7 +66,6 @@ class Day {
         }
     }
     clearShiftHours(){
-        console.log('clean')
         this.totalWorkTime.innerText ='';
     }
     clearInputs(){
@@ -70,6 +77,7 @@ class Day {
         this.workMinuteBreak.value = '00';
         this.totalWorkTime.innerText = ''
     }
+
     validateInput (input) {
         const maxValue = +input.dataset.valid
         // Stackoverflow solution
@@ -77,10 +85,12 @@ class Day {
         input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
         if(input.value > maxValue){
             input.classList.add('error');
-            this.clearShiftHours();
+            // this.clearShiftHours();
+            return false;
         } else {
             input.classList.remove('error');
-            this.countDayShift();
+            // this.countDayShift();
+            return true;
         }
     }
 }
@@ -94,7 +104,6 @@ class HoursCalculator{
     employeesArray = []
     employeeDisplayDOMel = document.querySelector('#employee-display')
     employeeName = document.querySelector('#employee')
-
 
     constructor(monday,tuesday,wednesday,thursday,friday,saturday,sunday) {
         this.Monday=monday
@@ -113,7 +122,6 @@ class HoursCalculator{
     countWholeWeek = () => {
         return this.daysArray.map(day => day.countDayShift()).reduce((a,c) => a + c, 0).toFixed(2);
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -135,7 +143,9 @@ class HoursCalculator{
 
     appendDivToDOM = (parentElement, content) => {
         let div = document.createElement('div');
-        div.innerHTML = `<p>${content.name} - <strong>${content.totalHours} h </strong></p>  <a class="button" onclick="hoursCalculator.removeEmployee(${content.id})">delete</a>`;
+        div.innerHTML = `
+        <p>${content.name} - <strong>${content.totalHours} h</strong></p>
+        <a class="button" onclick="hoursCalculator.removeEmployee(${content.id})">delete</a>`;
         parentElement.append(div);
     }
 
