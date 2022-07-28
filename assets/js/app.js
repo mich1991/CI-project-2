@@ -8,7 +8,6 @@ const daysOfTheWeekObjects = [
     {name: 'Sunday', prefix: 'su'},
 ];
 const domInputElementsSufix = ['-s-hours','-s-minutes','-e-hours','-e-minutes','-b-hours','-b-minutes','-total-hours'];
-
 const daysOftheWeek = {};
 
 daysOfTheWeekObjects.forEach(day => {
@@ -19,22 +18,9 @@ daysOfTheWeekObjects.forEach(day => {
     })
     daysOftheWeek[day.name] = domElements;
 })
-console.log(daysOftheWeek);
-const hoursCalculatorForm = document.querySelector('#hours-calculator')
-
-const employeeName = document.querySelector('#employee')
-const weekTotalHoursDOMel = document.querySelector('#week-total-hours');
-// each day will append value to a specific index of array according to its inner weekArrayPosition property
-let weekTotalHoursArray = [];
-let employeeID = 0
-let employeesArray = []
-let employeeDisplayDOMel = document.querySelector('#employee-display')
-
 
 //Day Class START =====
 class Day {
-    static id = 0;
-
     constructor(dayContainer, hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl, totalEl) {
         this.dayContainer = dayContainer;
         this.workHourStart = hourStartEl;
@@ -44,9 +30,7 @@ class Day {
         this.workHourBreak = hourBreakEl;
         this.workMinuteBreak = minuteBreakEl;
         this.totalWorkTime = totalEl;
-        this.weekArrayPosition = Day.id
         //Increment array position on each instance of class
-        Day.id++;
         this.dayContainer.addEventListener('input' , () => {
             const inputsArray = [this.workHourStart, this.workMinuteStart, this.workHourEnd, this.workMinuteEnd, this.workHourBreak, this.workMinuteBreak]
             inputsArray.forEach(input => this.validateInput(input))
@@ -67,13 +51,14 @@ class Day {
             }
             if (shiftDuration < 0) shiftDuration = '0.00';
             this.totalWorkTime.innerText = shiftDuration;
-            weekTotalHoursArray[this.weekArrayPosition] = +shiftDuration;
+            return +shiftDuration;
         } else {
             this.clearShiftHours();
-            weekTotalHoursArray[this.weekArrayPosition] = 0;
+            return 0;
         }
     }
     clearShiftHours(){
+        console.log('clean')
         this.totalWorkTime.innerText ='';
     }
     clearInputs(){
@@ -101,57 +86,69 @@ class Day {
 }
 //Day Class END =====
 // HoursCalculator Class START =====
+
 class HoursCalculator{
+    hoursCalculatorForm = document.querySelector('#hours-calculator')
+    weekTotalHoursDOMel = document.querySelector('#week-total-hours');
+    employeeID = 0
+    employeesArray = []
+    employeeDisplayDOMel = document.querySelector('#employee-display')
+    employeeName = document.querySelector('#employee')
 
 
+    constructor(monday,tuesday,wednesday,thursday,friday,saturday,sunday) {
+        this.Monday=monday
+        this.Tuesday=tuesday
+        this.Wednesday=wednesday
+        this.Thursday=thursday
+        this.Friday=friday
+        this.Saturday=saturday
+        this.Sunday=sunday
+        this.daysArray = [this.Monday, this.Tuesday, this.Wednesday, this.Thursday, this.Friday, this.Saturday, this.Sunday];
+
+        this.hoursCalculatorForm.addEventListener('submit', this.handleSubmit.bind(this))
+        this.hoursCalculatorForm.addEventListener('input', () => this.weekTotalHoursDOMel.textContent = this.countWholeWeek())
+    }
+
+    countWholeWeek = () => {
+        return this.daysArray.map(day => day.countDayShift()).reduce((a,c) => a + c, 0).toFixed(2);
+    }
+
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let name = this.employeeName.value
+        let totalHours = this.countWholeWeek()
+        this.employeesArray.push({ id : this.employeeID, name, totalHours})
+        this.employeeID++
+        this.clearParentElement(this.employeeDisplayDOMel);
+        this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
+    }
+
+
+    clearCalculator(){
+        let days = [this.Monday, this.Tuesday, this.Wednesday, this.Thursday, this.Friday, this.Saturday, this.Sunday];
+        days.forEach(day => day.clearInputs());
+        this.employeeName.value = '';
+        this.weekTotalHoursDOMel.innerHTML = ''
+    }
+
+    appendDivToDOM = (parentElement, content) => {
+        let div = document.createElement('div');
+        div.innerHTML = `<p>${content.name} - <strong>${content.totalHours} h </strong></p>  <a class="button" onclick="hoursCalculator.removeEmployee(${content.id})">delete</a>`;
+        parentElement.append(div);
+    }
+
+    clearParentElement = (parentElement) => {
+        parentElement.innerHTML = ''
+    }
+    removeEmployee = (id) => {
+        this.clearParentElement(this.employeeDisplayDOMel);
+        this.employeesArray = this.employeesArray.filter(employee => employee.id !== id);
+        this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
+    }
 }
 // HoursCalculator Class END ====
-
-const countWholeWeek = () => {
-   weekTotalHoursDOMel.textContent = weekTotalHoursArray.reduce((a,c) => a + c, 0).toFixed(2);
-}
-
-
-
-function handleSubmit(e) {
-    e.preventDefault();
-    let name = employeeName.value
-    let totalHours = weekTotalHoursArray.reduce((a,c) => a + c, 0)
-    employeesArray.push({ id : employeeID, name, totalHours})
-    employeeID++
-    clearParentElement(employeeDisplayDOMel);
-    employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
-
-}
-
-hoursCalculatorForm.addEventListener('submit', handleSubmit)
-
-function clearCalculator(){
-    let hoursCalculator = [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday];
-    hoursCalculator.forEach(day => day.clearInputs());
-    employeeName.value = '';
-    weekTotalHoursArray = []
-    weekTotalHoursDOMel.innerHTML = ''
-}
-
-const appendDivToDOM = (parentElement, content) => {
-    let div = document.createElement('div');
-    div.innerHTML = `<p>${content.name} - <strong>${content.totalHours} h </strong></p>  <a class="button" onclick="removeEmployee(${content.id})">delete</a>`;
-    parentElement.append(div);
-}
-
-const clearParentElement = (parentElement) => {
-    parentElement.innerHTML = ''
-}
-const removeEmployee = (id) => {
-    clearParentElement(employeeDisplayDOMel);
-    employeesArray = employeesArray.filter(employee => employee.id !== id);
-    employeesArray.forEach(employee => appendDivToDOM(employeeDisplayDOMel, employee));
-}
-// const validateDay = (dayEl) => {
-//     const allInputsEl = dayEl.querySelectorAll('input')
-//     allInputsEl.forEach(input => console.log(input.dataset.valid))
-// }
 
 const Monday = new Day(...daysOftheWeek['Monday']);
 const Tuesday = new Day(...daysOftheWeek['Tuesday']);
@@ -160,3 +157,4 @@ const Thursday = new Day(...daysOftheWeek['Thursday']);
 const Friday = new Day(...daysOftheWeek['Friday']);
 const Saturday = new Day(...daysOftheWeek['Saturday']);
 const Sunday = new Day(...daysOftheWeek['Sunday']);
+const hoursCalculator = new HoursCalculator(Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday)
