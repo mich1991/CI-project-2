@@ -33,7 +33,7 @@ class Day {
         this.workMinuteBreak = minuteBreakEl;
         this.totalWorkTime = totalEl;
 
-        this.clearInputs();
+        this.clearShiftHours();
         this.dayContainer.addEventListener('input', this.validateDay.bind(this));
     }
 
@@ -143,8 +143,7 @@ class HoursCalculator {
 
 
     clearCalculator() {
-        let days = [this.Monday, this.Tuesday, this.Wednesday, this.Thursday, this.Friday, this.Saturday, this.Sunday];
-        days.forEach(day => day.clearInputs());
+        this.daysArray.forEach(day => day.clearInputs());
         this.employeeName.value = '';
         this.weekTotalHoursDOMel.innerHTML = ''
     }
