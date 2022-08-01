@@ -49,6 +49,8 @@ I avoided using any libraries in this project. Calculator is fully responsive bu
 + [Photopea](https://www.photopea.com/) - photos resizing.
 + [Formspree](https://formspree.io/) - newsletter form submit.
 + [Hatchful](https://hatchful.shopify.com/) - logo generator.
++ [Freepik](https://www.freepik.com/vectors/wide-banner) - Wide banner vector created by starline
+  
 
 ## Future features:
    + Save employees/submission result to cookies/local storage.
@@ -298,5 +300,8 @@ Manual testing discovered some errors connected to error handling like not remov
 ###Lighthouse - mobile
 ![](docs/lighthouse-mobile.png)
 
+## Credits
+Huge thanks to my wife for motivating me to build a tool/app/website that would make her work easier and me proud of myself.
+Thanks to my mentor [Guido Cecilio Garcia Bernal](https://github.com/guidocecilio) guided me throughout this project.
 
 
