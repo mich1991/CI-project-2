@@ -21,6 +21,8 @@ daysOfTheWeekObjects.forEach(day => {
 
 //Day Class START =====
 class Day {
+    isDayValid = true;
+
     constructor(dayContainer, hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl, totalEl) {
         this.dayContainer = dayContainer;
         this.workHourStart = hourStartEl;
@@ -31,10 +33,12 @@ class Day {
         this.workMinuteBreak = minuteBreakEl;
         this.totalWorkTime = totalEl;
 
-        this.dayContainer.addEventListener('input', this.validateDay())
+        this.clearInputs();
+        this.dayContainer.addEventListener('input', this.validateDay.bind(this));
     }
 
     countDayShift() {
+        if (this.isDayValid === false) return 0;
         let shiftDuration = 0;
         let startMinutes = (+this.workHourStart.value * 60) + +this.workMinuteStart.value;
         let endMinutes = (+this.workHourEnd.value * 60) + +this.workMinuteEnd.value;
@@ -46,7 +50,7 @@ class Day {
             } else {
                 shiftDuration = ((endMinutes - startMinutes - breakMinutes) / 60).toFixed(2);
             }
-            if (shiftDuration < 0) shiftDuration = '0.00';
+            if (shiftDuration < 0) shiftDuration = 0;
             return +shiftDuration;
         } else {
             this.clearShiftHours();
@@ -55,7 +59,7 @@ class Day {
     }
 
     clearShiftHours() {
-        this.totalWorkTime.innerText = '';
+        this.totalWorkTime.innerText = '0.00';
     }
 
     clearInputs() {
@@ -65,7 +69,7 @@ class Day {
         this.workMinuteEnd.value = '00';
         this.workHourBreak.value = ''
         this.workMinuteBreak.value = '00';
-        this.totalWorkTime.innerText = ''
+        this.totalWorkTime.innerText = '0.00'
     }
 
     validateDay() {
@@ -75,9 +79,11 @@ class Day {
             errorArray.push(this.validateSingleInput(input))
         })
         if (errorArray.includes(false)) {
-            this.clearShiftHours()
+            this.clearShiftHours();
+            this.isDayValid = false;
         } else {
             this.totalWorkTime.innerText = this.countDayShift().toFixed(2);
+            this.isDayValid = true;
         }
     }
 
@@ -88,11 +94,9 @@ class Day {
         input.value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
         if (input.value > maxValue) {
             input.classList.add('error');
-            // this.clearShiftHours();
             return false;
         } else {
             input.classList.remove('error');
-            // this.countDayShift();
             return true;
         }
     }
@@ -162,7 +166,6 @@ class HoursCalculator {
         this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
     }
 }
-
 // HoursCalculator Class END ====
 
 const Monday = new Day(...daysOftheWeek['Monday']);
