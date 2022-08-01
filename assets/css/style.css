@@ -278,6 +278,7 @@ footer p {
         display: flex;
         justify-content: end;
         font-size: 1.4em;
+        margin-top: 8px;
         transform: translate(-20px, -10px);
     }
     .table__row__total-hours span:before{
