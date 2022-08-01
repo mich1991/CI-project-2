@@ -1,6 +1,6 @@
 # CI-project-2
 
-![](docs/Screenshot 2022-08-01 at 16.11.08.png)
+![](docs/amiresponsive.png)
 
 ## Work Hours Calculator
 This project is dedicated to my wife whose responsibility is counting her coworkers working hours every fortnight.
@@ -44,6 +44,27 @@ I avoided using any libraries in this project. Calculator is fully responsive bu
 + [Photopea](https://www.photopea.com/) - photos resizing.
 + [Formspree](https://formspree.io/) - newsletter form submit.
 
+## Future features:
+   + Save employees/submission result to cookies/local storage.
+   + Export users to CSV.
+   + Refactor employee object to contain all details about working hours instead only total hours.
+   + Allow editing saved employee (currently only delete available)
+   + After adding editing employee/user - add clear form after submit. Currenlty form is not cleared after submit allowing for check again for any errors.
 
 
+## Testing
+
+### [HTML validator](https://validator.w3.org/)
+
+![](docs/html-validator.png)
+
+### [CSS validator](https://jigsaw.w3.org/css-validator/)
+
+![](docs/css-validator.png)
+
+###Lighthouse - desktop
+![](docs/lighthouse-desktop.png)
+
+###Lighthouse - mobile
+![](docs/lighthouse-mobile.png)
 
