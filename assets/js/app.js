@@ -32,6 +32,7 @@ class Day {
         this.workHourBreak = hourBreakEl;
         this.workMinuteBreak = minuteBreakEl;
         this.totalWorkTime = totalEl;
+        this.inputsArray = [hourStartEl, minuteStartEl, hourEndEl, minuteEndEl, hourBreakEl, minuteBreakEl]
 
         this.clearShiftHours();
         this.dayContainer.addEventListener('input', this.validateDay.bind(this));
@@ -63,6 +64,7 @@ class Day {
     }
 
     clearInputs() {
+        this.inputsArray.forEach(input => input.classList.remove('error'))
         this.workHourStart.value = '';
         this.workMinuteStart.value = '00';
         this.workHourEnd.value = '';
@@ -131,19 +133,10 @@ class HoursCalculator {
         return this.daysArray.map(day => day.countDayShift()).reduce((a, c) => a + c, 0).toFixed(2);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        let name = this.employeeName.value
-        let totalHours = this.countWholeWeek()
-        this.employeesArray.push({id: this.employeeID, name, totalHours})
-        this.employeeID++
-        this.clearParentElement(this.employeeDisplayDOMel);
-        this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
-    }
-
-
     clearCalculator() {
-        this.daysArray.forEach(day => day.clearInputs());
+        this.daysArray.forEach(day => {
+            day.clearInputs()
+        });
         this.employeeName.value = '';
         this.weekTotalHoursDOMel.innerHTML = ''
     }
@@ -162,6 +155,16 @@ class HoursCalculator {
     removeEmployee = (id) => {
         this.clearParentElement(this.employeeDisplayDOMel);
         this.employeesArray = this.employeesArray.filter(employee => employee.id !== id);
+        this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let name = this.employeeName.value
+        let totalHours = this.countWholeWeek()
+        this.employeesArray.push({id: this.employeeID, name, totalHours})
+        this.employeeID++
+        this.clearParentElement(this.employeeDisplayDOMel);
         this.employeesArray.forEach(employee => this.appendDivToDOM(this.employeeDisplayDOMel, employee));
     }
 }
