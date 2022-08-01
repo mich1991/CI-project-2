@@ -49,7 +49,8 @@ I avoided using any libraries in this project. Calculator is fully responsive bu
 + [Photopea](https://www.photopea.com/) - photos resizing.
 + [Formspree](https://formspree.io/) - newsletter form submit.
 + [Hatchful](https://hatchful.shopify.com/) - logo generator.
-+ [Freepik](https://www.freepik.com/vectors/wide-banner) - Wide banner vector created by starline
++ [Freepik](https://www.freepik.com/vectors/wide-banner) - Wide banner vector created by starline.
++ [realfavicongenerator](https://realfavicongenerator.net/) - favicon generator.
   
 
 ## Future features:
